@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlaskFlix</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>FlaskFlix</h1>
+    </header>
+
+    <main class="video-gallery">
+        {% for video in videos %}
+        <div class="video-card">
+            <iframe
+                width="100%"
+                height="200"
+                src="https://www.youtube.com/embed/{{ video.id }}"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+            <h3>{{ video.titulo }}</h3>
+            <p>{{ video.canal }}</p>
+        </div>
+        {% endfor %}
+        </main>
+
+</body>
+</html>
